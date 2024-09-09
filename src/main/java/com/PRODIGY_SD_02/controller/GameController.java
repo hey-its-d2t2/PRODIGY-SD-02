@@ -26,9 +26,18 @@ public class GameController {
     }
 
     @PostMapping("/guess")
-    public String makeGuess(@RequestParam("guess") int guess, Model model) {
-        Game game = (Game) model.getAttribute("game");
-        gameService.makeGuess(game, guess);
+    public String makeGuess(@RequestParam("guess") String guess, Model model) {
+        try {
+            int guessNumber = Integer.parseInt(guess);
+            Game game = (Game) model.getAttribute("game");
+            if (game != null) {
+                gameService.makeGuess(game, guessNumber);
+            } else {
+                model.addAttribute("error", "Game not found. Please start a new game.");
+            }
+        } catch (NumberFormatException e) {
+            model.addAttribute("error", "Invalid input. Please enter a number.");
+        }
         return "index";
     }
 
