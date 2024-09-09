@@ -4,51 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guessing Game</title>
-    <link rel="stylesheet" href="/css/styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50;
+            padding: 15px;
+            color: white;
+        }
+
+        .navbar .brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .game-title {
+            font-size: 24px;
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Container */
         .container {
             max-width: 600px;
-            margin: auto;
+            margin: 60px auto;
             padding: 20px;
             background: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         button {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 10px;
         }
 
         button:hover {
             background-color: #45a049;
+            transform: scale(1.05);
         }
 
         input[type="number"] {
-            padding: 10px;
+            padding: 12px;
             border-radius: 5px;
             border: 1px solid #ccc;
             margin-right: 10px;
+            font-size: 16px;
         }
 
         .error {
             color: red;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer h2 {
+            margin: 0;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .navbar .game-title {
+                margin: 10px 0;
+            }
+
+            .container {
+                margin: 20px;
+            }
         }
     </style>
 </head>
 <body>
+<!-- Navbar -->
+<div class="navbar">
+    <div class="brand">Deepak Singh</div>
+    <div class="game-title">Guess the Number Game</div>
+</div>
+
+<!-- Game Container -->
 <div class="container">
     <h1>Guess the Number Game</h1>
     <form th:action="@{/my-game/guess}" method="post">
@@ -64,8 +144,19 @@
     <p th:if="${game != null}" th:text="'Attempts: ' + ${game.attempts}"></p>
     <p class="error" th:text="${error}"></p>
 </div>
-<script>
 
-</script>
+<!-- Footer -->
+<div class="footer">
+    <h2>About the Game</h2>
+    <p>Welcome to the Guess the Number Game! The objective is simple: guess the number that the computer has randomly selected. Each time you make a guess, you will be informed whether your guess was too high or too low. Keep guessing until you find the correct number.</p>
+    <p>Rules:</p>
+    <ul>
+        <li>Enter a number in the input field.</li>
+        <li>Click "Submit Guess" to see if you are correct.</li>
+        <li>If your guess is incorrect, you will be informed whether you need to guess higher or lower.</li>
+        <li>Continue guessing until you find the correct number.</li>
+        <li>Click "Start New Game" to begin a new round.</li>
+    </ul>
+</div>
 </body>
 </html>
