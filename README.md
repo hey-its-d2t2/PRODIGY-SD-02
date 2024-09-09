@@ -51,3 +51,24 @@ The "Guess the Number Game" is a simple web application developed to provide an 
 ```bash
 git clone https://github.com/hey-its-d2t2/Guessing-Game.git
 cd Guessing-Game
+```
+### 2. Set Up the Backend
+Navigate to the backend directory and run the Spring Boot application:
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+### 3. Open the Application
+Open your browser and visit **http://localhost:8080/guessing-game** to start playing the game.
+
+## Development
+To contribute to this project or make modifications, please follow these guidelines:
+
+- Ensure the code adheres to the project standards.
+- Include appropriate tests for any new features.
+- Submit pull requests with detailed descriptions of changes.
+## Acknowledgements
+- Spring Boot: For providing a robust backend framework.
+- Thymeleaf: For dynamic and efficient templating.
+### Contact
+For any questions or feedback, please contact me at **deepsinghkumar01@gmail.com**.
