@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <h1>Guess the Number Game</h1>
+    <form th:action="@{/guess}" method="post">
+        <label for="guess">Enter your guess:</label>
+        <input type="number" id="guess" name="guess" required>
+        <button type="submit">Submit Guess</button>
+    </form>
 
+    <form th:action="@{/newgame}" method="post">
+        <button type="submit">Start New Game</button>
+    </form>
+
+    <p th:text="${game.message}"></p>
+</div>
+<script >
+
+</script>
 </body>
 </html>
