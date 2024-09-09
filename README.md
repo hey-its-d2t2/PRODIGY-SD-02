@@ -1,6 +1,6 @@
 # Guess the Number Game
 
-The "Guess the Number Game" is a simple web application developed to provide an interactive and engaging user experience where players try to guess a randomly generated number by the system. This project serves as a fun yet challenging guessing game, offering users feedback after each guess, and keeping track of their attempts. It was designed to combine frontend design with a Spring Boot backend for handling game logic.
+The **"Guess the Number Game"** is a simple web application developed as part of **Task 2** during my **internship** with **Prodigy Infotech**. It provides an interactive and engaging experience where players attempt to guess a randomly generated number by the system. After each guess, the game offers real-time feedback, indicating whether the guess was too high or too low, while also keeping track of the number of attempts. Designed with a focus on frontend aesthetics and a robust Spring Boot backend to handle game logic, this project combines fun gameplay with smooth functionality for an enhanced user experience..
 
 ## Tech Stack
 
