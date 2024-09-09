@@ -11,7 +11,7 @@ public class GameService {
 
     public Game startNewGame() {
         Game game = new Game();
-        game.setTargetNumber(random.nextInt(100) + 1); // Random number between 1 and 100
+        game.setTargetNumber(random.nextInt(1000) + 1); // Random number between 1 and 1000
         game.setAttempts(0);
         game.setMessage("Guess the number!");
         return game;
